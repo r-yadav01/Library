@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> -->
@@ -12,68 +13,38 @@
 <body>
     <header>
         <h1>Library</h1>
-        <button>
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book-plus</title><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" /></svg> -->
-            ADD BOOK
-        </button>
+        <button id="addBookBtn">ADD BOOK</button>
     </header>
     <main>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Not Read</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <!-- <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title"></p>
-            <p class="author">James clear</p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author"></p>
-            <p class="pages">310</p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div>
-        <div class="bookCard">
-            <p class="title">Atomic habits</p>
-            <p class="author">James clear</p>
-            <p class="pages"></p>
-            <button class="readStatus">Read already</button>
-            <button class="remove">Remove book</button>
-        </div> -->
+        <dialog id="addDialog">
+            <form method="dialog">
+                <div class="formInput">
+                    <label for="title">Title</label>
+                    <input name="title" type="text" id="title" required>
+                </div>
+
+                <div class="formInput">
+                    <label for="author">Author</label>
+                    <input name="author" type="text" id="author" required>
+                </div>
+
+                <div class="formInput">
+                    <label for="pages">Pages</label>
+                    <input name="pages" type="number" id="pages" required>
+                </div>
+
+                <div class="formInput">
+                    <input type="checkbox" name="read" id="read" value="Read">
+                    <label for="read">Read already</label>
+                </div>
+
+                <div class="formBtns">
+                    <button id="addBtn">Add</button>
+                    <button id="cancelBtn">Cancel</button>
+                </div>
+
+            </form>
+        </dialog>
     </main>
     <footer>
         <address>Connect with me on <a href="">Twitter</a></address>
