@@ -15,33 +15,50 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function readArray(myLibrary) {
+  const mainDiv = document.querySelector('main');
+  mainDiv.innerHTML = '';
+  
+  let bookNum = 0;
+
     myLibrary.forEach((book) => {
-        let cardDiv = document.createElement("div");
-        cardDiv.classList.add("bookCard");
 
-        let firstP = document.createElement("p");
-        let secondP = document.createElement("p");
-        let thirdP = document.createElement("p");
-        let firstButt = document.createElement("button");
-        let secondButt = document.createElement("button");
+      let cardDiv = document.createElement("div");
+      cardDiv.classList.add("bookCard");
+      // cardDiv.dataset.cardId = bookNum;
 
-        firstP.classList.add("title");
-        secondP.classList.add("author");
-        thirdP.classList.add("pages");
-        firstButt.classList.add("readStatus");
-        secondButt.classList.add("removeBook");
+      let firstP = document.createElement("p");
+      let secondP = document.createElement("p");
+      let thirdP = document.createElement("p");
+      let readButt = document.createElement("button");
+      let removeButt = document.createElement("button");
 
-        firstP.textContent = book.title;
-        secondP.textContent = book.author;
-        thirdP.textContent = book.pages;
-        firstButt.textContent = book.read;
-        secondButt.textContent = "Remove Book";
+      firstP.classList.add("title");
+      secondP.classList.add("author");
+      thirdP.classList.add("pages");
+      readButt.classList.add("readStatus");
+      removeButt.classList.add("removeBook");
 
-        cardDiv.append(firstP, secondP, thirdP, firstButt, secondButt);
+      firstP.textContent = book.title;
+      secondP.textContent = book.author;
+      thirdP.textContent = book.pages;
+      readButt.textContent = book.read;
+      removeButt.textContent = "Remove Book";
+      removeButt.dataset.bookId = bookNum;
+      bookNum++;
 
-        const mainDiv = document.querySelector('main');
-        mainDiv.appendChild(cardDiv);
+      cardDiv.append(firstP, secondP, thirdP, readButt, removeButt);
+
+      mainDiv.appendChild(cardDiv);
     });
+
+    let removeButtons = document.querySelectorAll('.removeBook');
+    removeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      let bookPosition = parseInt(event.target.dataset.bookId, 10);
+        myLibrary.splice(bookPosition, 1);
+        readArray(myLibrary);
+      })
+    })
 }
 
 let form = document.querySelector('form');
@@ -82,4 +99,11 @@ cancelBtn.addEventListener('click', (event) => {
 })
 
 
-// readArray(myLibrary);
+
+readArray(myLibrary);
+// to add a remove button to each book card
+// first while a book is being created associate a "data-bookNum" attribute which is equal to the length of the 'array+1'
+// when a remove button is removed use its dataset object to access its bookNum data value, and use that value-1 as a position in array to remove.
+// after an item is removed from an array, loop through the cards elements with a queryselectorall and update the data-bookNum attributes of the elements whose values are 
+
+// function removeFromLib()
