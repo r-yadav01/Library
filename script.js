@@ -17,7 +17,7 @@ function addBookToLibrary(title, author, pages, read) {
 function readArray(myLibrary) {
   const mainDiv = document.querySelector('main');
   mainDiv.innerHTML = '';
-  
+
   let bookNum = 0;
 
     myLibrary.forEach((book) => {
@@ -42,6 +42,7 @@ function readArray(myLibrary) {
       secondP.textContent = book.author;
       thirdP.textContent = book.pages;
       readButt.textContent = book.read;
+      readButt.dataset.bookId = bookNum;
       removeButt.textContent = "Remove Book";
       removeButt.dataset.bookId = bookNum;
       bookNum++;
@@ -51,6 +52,24 @@ function readArray(myLibrary) {
       mainDiv.appendChild(cardDiv);
     });
 
+
+    let readButtons = document.querySelectorAll('.readStatus');
+    readButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        let bookPosition = parseInt(event.target.dataset.bookId, 10);
+        let bookObject = myLibrary[bookPosition];
+        
+        if (bookObject.read == "Not Read") {
+          bookObject.read  = "Read";
+        }
+        else if (bookObject.read == "Read") {
+          bookObject.read = "Not Read";
+        }
+        readArray(myLibrary);
+      })
+    })
+
+    
     let removeButtons = document.querySelectorAll('.removeBook');
     removeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
