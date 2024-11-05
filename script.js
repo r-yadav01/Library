@@ -43,7 +43,7 @@ function readArray(myLibrary) {
       thirdP.textContent = book.pages;
       readButt.textContent = book.read;
       readButt.dataset.bookId = bookNum;
-      removeButt.textContent = "Remove Book";
+      removeButt.textContent = "Remove";
       removeButt.dataset.bookId = bookNum;
       bookNum++;
 
@@ -61,9 +61,11 @@ function readArray(myLibrary) {
         
         if (bookObject.read == "Not Read") {
           bookObject.read  = "Read";
+          event.target.style.backgroundColor = 'rgb(144, 238, 144)';
         }
         else if (bookObject.read == "Read") {
           bookObject.read = "Not Read";
+          event.target.style.backgroundColor = 'rgb(240, 128, 128)';
         }
         readArray(myLibrary);
       })

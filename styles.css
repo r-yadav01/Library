@@ -1,8 +1,40 @@
-/* css reset */
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-Regular-webfont.woff) format('woff');
+    font-style: normal;
+    font-weight: 400;
+}
 
-body {
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  }
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-Semibold-webfont.woff) format('woff');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-Bold-webfont.woff) format('woff');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-BoldItalic-webfont.woff) format('woff');
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-ExtraBold-webfont.woff) format('woff');
+    font-style: normal;
+    font-weight: 800;
+}
+
+
+/* css reset */
   
   *, *::before, *::after {
       box-sizing: border-box;
@@ -48,13 +80,35 @@ svg {
 header, footer {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
 }
 
-html body {
+body {
+    font-family: 'OpenSans';
+    font-weight: 600;
+    font-style: normal;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: lightgray;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+}
+
+header button {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+    height: 4rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10%/40%;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -66,18 +120,25 @@ main {
 
 .bookCard {
     margin: 1rem;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     gap: 0.5rem;
     min-width: fit-content;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+    background-color: whitesmoke;
+    border-radius: 5%;
 }
 
-button {
+.bookCard button {
+    font-weight: 600;
+    font-size: 1rem;
     border-radius: 10%/30%;
-    width: 8rem;
+    text-align: center;
+    width: 7rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #addDialog {
@@ -85,11 +146,11 @@ button {
 }
 
 form {
-    /* width: 40vw; */
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background-color: whitesmoke;
 }
 
 .formInput {
@@ -98,47 +159,30 @@ form {
 }
 
 label {
-    font-weight: bold;
+    font-style: italic;
+    font-weight: 700;
 }
 
-/* .title, .author, .pages {
-    text-align: center;
-    padding: 0.2rem 0.4rem;
-}
-
-.readStatus, .removeBook {
-    height: 2rem;
+form button {
+    font-weight: 600;
+    font-size: 1.5rem;
     width: 8rem;
-    border-radius: 10%/30%;
+    border-radius: 15%/35%;
+    text-align: center;
+    margin: 0rem 0.5rem;
+    padding: 0.2rem 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+form #addBtn {
+    background-color: lightgreen;
 }
 
-.formInputs {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    margin: 0rem 0.5rem
+form #cancelBtn {
+    background-color: lightcoral;
 }
 
-.formBtns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer {
+    font-style: italic;
+    font-weight: 700;
 }
-
-label {
-    margin: 0rem 1rem;
-}
-
-input#read {
-    margin: 0.5rem;
-    height: 1rem;
-    width: 1rem;
-    align-self: center;
-    margin-left: auto;
-} */
