@@ -24,7 +24,6 @@ function readArray(myLibrary) {
 
       let cardDiv = document.createElement("div");
       cardDiv.classList.add("bookCard");
-      // cardDiv.dataset.cardId = bookNum;
 
       let firstP = document.createElement("p");
       let secondP = document.createElement("p");
@@ -44,6 +43,11 @@ function readArray(myLibrary) {
       readButt.textContent = book.read;
       readButt.dataset.bookId = bookNum;
       removeButt.textContent = "Remove";
+
+      if (book.read === "Read") {
+        readButt.classList.add("readed");
+      }
+
       removeButt.dataset.bookId = bookNum;
       bookNum++;
 
@@ -61,15 +65,25 @@ function readArray(myLibrary) {
         
         if (bookObject.read == "Not Read") {
           bookObject.read  = "Read";
-          event.target.style.backgroundColor = 'rgb(144, 238, 144)';
         }
         else if (bookObject.read == "Read") {
           bookObject.read = "Not Read";
-          event.target.style.backgroundColor = 'rgb(240, 128, 128)';
         }
-        readArray(myLibrary);
+        readArray(myLibrary);  //buttons colors are not changing because of this
       })
     })
+
+    // let readButton = document.querySelectorAll('.readStatus');
+    // readButton.forEach((button) => {
+    //   button.addEventListener('click', (event) => {
+    //     if (button.textContent == "Read") {
+    //       event.target.style.backgroundColor = 'rgb(144, 238, 144)';
+    //     }
+    //     else if (button.textContent == "Not Read") {
+    //       event.target.style.backgroundColor = 'rgb(240, 128, 128)';
+    //     }
+    //   })
+    // })
 
     
     let removeButtons = document.querySelectorAll('.removeBook');
