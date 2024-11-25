@@ -89,7 +89,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: lightgray;
+    background-color: #E0E0E0;
 }
 
 h1 {
