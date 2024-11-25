@@ -1,17 +1,35 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// function Book(title, author, pages, read) {
+//   // the constructor...
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+// }
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  // do stuff here
+  title = toTitleCase(title);
+  author = toTitleCase(author);
+
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+}
+
+function toTitleCase(str) {
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
 
 function readArray(myLibrary) {
@@ -69,21 +87,9 @@ function readArray(myLibrary) {
         else if (bookObject.read == "Read") {
           bookObject.read = "Not Read";
         }
-        readArray(myLibrary);  //buttons colors are not changing because of this
+        readArray(myLibrary);
       })
     })
-
-    // let readButton = document.querySelectorAll('.readStatus');
-    // readButton.forEach((button) => {
-    //   button.addEventListener('click', (event) => {
-    //     if (button.textContent == "Read") {
-    //       event.target.style.backgroundColor = 'rgb(144, 238, 144)';
-    //     }
-    //     else if (button.textContent == "Not Read") {
-    //       event.target.style.backgroundColor = 'rgb(240, 128, 128)';
-    //     }
-    //   })
-    // })
 
     
     let removeButtons = document.querySelectorAll('.removeBook');
@@ -134,11 +140,5 @@ cancelBtn.addEventListener('click', (event) => {
 })
 
 
-
 readArray(myLibrary);
-// to add a remove button to each book card
-// first while a book is being created associate a "data-bookNum" attribute which is equal to the length of the 'array+1'
-// when a remove button is removed use its dataset object to access its bookNum data value, and use that value-1 as a position in array to remove.
-// after an item is removed from an array, loop through the cards elements with a queryselectorall and update the data-bookNum attributes of the elements whose values are 
 
-// function removeFromLib()

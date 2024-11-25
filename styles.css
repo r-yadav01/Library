@@ -68,9 +68,6 @@
 
   
   /* my styles below this */
-/* * {
-    outline: 1px dashed red;
-} */
 
 svg {
     height: 1.2rem;
@@ -137,13 +134,13 @@ main {
 
 .bookCard button {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-radius: 10%/30%;
     text-align: center;
     width: 7rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     border: 3px ridge black;
-    background-color:silver;
+    background-color: #E0E0E0;
 }
 
 button.readStatus {
